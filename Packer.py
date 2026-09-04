@@ -9,6 +9,7 @@ try:
             if not(whole is None) and len(whole) >= i:
                 print("эээ 67?")
                 for y in range(i,len(whole)):
+                        print(1)
                         if len(r) % 2 == 1:
                             if str(whole)[y] != " " or y == 1:
                                 r+=str(whole)[y]
@@ -214,7 +215,10 @@ try:
                                         l=q[2]
                                         r=q[3]
                                         if t[-1] > t[-2]:
-                                            l=f"{l},_"
+                                            if l == "\n":
+                                                l=f"{l}~,_"
+                                            else:
+                                                l=f"{l},_"
                                             r+=str(whole)[y]
                                         else:
                                             r+=str(whole)[y]
@@ -232,7 +236,10 @@ try:
                                         l=q[2]
                                         r=q[3]
                                         if t[-1] > t[-2]:
-                                            l=f"{l},_"
+                                            if l == "\n":
+                                                l=f"{l}~,_"
+                                            else:
+                                                l=f"{l},_"
                                             r+=str(whole)[y]
                                         else:
                                             r+=str(whole)[y]
@@ -273,10 +280,10 @@ try:
         return agents[0]
     if len(sys.argv) > 1:
         input_pyt=sys.argv[1]
-        with open(input_pyt,'r',encoding='latin-1', errors='ignore') as a:
+        with open(input_pyt,'rb') as a:
             output=Packer(a.read())
         output_pyt=input_pyt+".lenu"
-        with open(output_pyt,'w',encoding='latin-1', errors='ignore') as a:
+        with open(output_pyt,'w') as a:
             a.write(str(output))
     input("нажми enter для завершения сборки...")
 except Exception as a:
